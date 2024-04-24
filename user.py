@@ -1,12 +1,8 @@
 class user:
-    _all_users = []
-
-    def __init__(self, username, password):
+    def __init__(self, username, password, highscore=0):
         self.username = username
         self.password = password
-        self.highscore = 0
-
-        self._all_users.append(self)
+        self.highscore = highscore
 
     def get_username(self):
         return self.username
@@ -20,9 +16,3 @@ class user:
     def update_highscore(self, new_score):
         self.highscore = new_score
         return self.highscore
-
-    def set_current_user(self, user):
-         self.current_user = user
-
-    def get_current_user(self):
-         return self.current_user

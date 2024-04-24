@@ -19,9 +19,5 @@ class TestUser(unittest.TestCase):
     def test_update_highscore(self):
         self.assertEqual(self.user.update_highscore(500), 500)
 
-    def test_set_current_user(self):
-        self.user.set_current_user(self.user)
-        self.assertEqual(self.user.get_current_user(), self.user)
-
 if __name__ == '__main__':
     unittest.main()
