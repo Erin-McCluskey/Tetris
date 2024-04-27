@@ -1,7 +1,7 @@
 import unittest
 
-from database import database_manager
-from user import user
+from classes.database import database_manager
+from classes.user import user
 
 class TestDatabase(unittest.TestCase):
     def setUp(self):
@@ -36,6 +36,13 @@ class TestDatabase(unittest.TestCase):
         self.db.insert_user(first_user)
         self.assertEqual(self.db.get_user_by_username("firstuser"), ("firstuser", "password", 0))
 
+    def test_delete_user_by_name(self):
+        self.db.insert_user(user("firstuser", "password", 0))
+        self.assertEqual(self.db.get_user_by_username("firstuser"), ("firstuser", "password", 0))
+
+        self.db.delete_user("firstuser")
+
+        self.assertEqual(len(self.db.get_user_by_username("firstuser")),0)
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,7 +7,7 @@ class database_manager:
 
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
-                username TEXT PRIMARY KEY NOT NULL,
+                username TEXT NOT NULL,
                 password TEXT NOT NULL,
                 highscore NUMBER DEFAULT 0 NOT NULL
             )
@@ -35,3 +35,8 @@ class database_manager:
     def insert_user(self, user):
         self.cursor.execute("INSERT INTO users (username, password, highscore) VALUES (?, ?, ?)", (user.username, user.password, user.highscore))
         self.conn.commit()
+
+    def delete_user(self, username):
+        if len(self.get_user_by_username(username)) != 0:
+            self.cursor.execute("DELETE FROM users WHERE username = ?", (username,))
+            self.conn.commit()
