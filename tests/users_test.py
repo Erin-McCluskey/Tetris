@@ -1,6 +1,6 @@
 import unittest
 
-from user import user
+from classes.user import user
 
 class TestUser(unittest.TestCase):
     def setUp(self):
