@@ -12,14 +12,14 @@ class TestAccount(unittest.TestCase):
         self.stub_account = stub_account_verification()
 
     def test_redirect_to_sign_up(self):
-        with patch("classes.account_verification.account_verification.Sign_up") as mock:
+        with patch("classes.account_verification.account_verification.Sign_up") as function:
             self.account.redirect_to_sign_up_or_log_in(choice="Sign_up", back_message="back")
-            self.assertTrue(mock.called)
+            self.assertTrue(function.called)
 
     def test_redirect_to_log_in(self):
-        with patch("classes.account_verification.account_verification.Log_in") as mock:
+        with patch("classes.account_verification.account_verification.Log_in") as function:
             self.account.redirect_to_sign_up_or_log_in(choice="Log_in", back_message="back")
-            self.assertTrue(mock.called)
+            self.assertTrue(function.called)
 
     def test_sign_up_adds_user(self):
         self.db.delete_user("test_name")
