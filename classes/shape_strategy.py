@@ -73,8 +73,23 @@ class J_strategy(shapes_abtract, shape):
         self.colour = (255, 165, 0)
         self.shape_space = [
             ['.....',
+            '.0...',
+            '.000.',
             '.....',
-            '.00..',
+            '.....'],
+            ['.....',
+            '..00.',
+            '..0..',
+            '..0..',
+            '.....'],
+            ['.....',
+            '.....',
+            '.000.',
+            '...0.',
+            '.....'],
+            ['.....',
+            '..0..',
+            '..0..',
             '.00..',
             '.....']
             ]
@@ -113,8 +128,7 @@ class T_strategy(shapes_abtract, shape):
     def update_init(self):
         self.name = "T"
         self.colour = (128, 0, 128)
-        self.shape_space = [
-            ['.....',
+        self.shape_space = [['.....',
             '..0..',
             '.000.',
             '.....',
